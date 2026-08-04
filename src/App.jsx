@@ -5,6 +5,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Blog from './components/Blog';
 import './index.css';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
       <Hero />
       <Projects />
       <Skills />
+      <Blog />
       <Contact />
       <Footer />
     </div>

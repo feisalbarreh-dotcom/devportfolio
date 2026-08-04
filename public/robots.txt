@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://feisalbarreh-dotcom.github.io/devportfolio/sitemap.xml

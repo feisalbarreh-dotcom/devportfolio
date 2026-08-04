@@ -12,6 +12,7 @@ const Header = ({ toggleDarkMode, darkMode }) => {
             <li><a href="#home" className="text-gray-600 dark:text-gray-300 hover:text-blue-600">Home</a></li>
             <li><a href="#projects" className="text-gray-600 dark:text-gray-300 hover:text-blue-600">Projects</a></li>
             <li><a href="#skills" className="text-gray-600 dark:text-gray-300 hover:text-blue-600">Skills</a></li>
+            <li><a href="#blog" className="text-gray-600 dark:text-gray-300 hover:text-blue-600">Blog</a></li>
             <li><a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-blue-600">Contact</a></li>
           </ul>
         </nav>
