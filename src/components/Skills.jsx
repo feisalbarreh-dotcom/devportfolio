@@ -1,21 +1,18 @@
 import React from 'react';
 
 const skills = {
-  '💻 Programming Languages': ['Python', 'JavaScript', 'HTML5', 'CSS3', 'TypeScript', 'Java', 'C++'],
-  
-  '⚛️ Frontend Development': ['React', 'Next.js', 'Tailwind CSS', 'Bootstrap', 'Framer Motion', 'Redux', 'Vue.js'],
-  
-  '🖥️ Backend Development': ['Node.js', 'Express', 'Django', 'FastAPI', 'Flask', 'GraphQL', 'REST APIs'],
-  
-  '🤖 AI & Machine Learning': ['Ollama', 'OpenAI API', 'LangChain', 'TensorFlow', 'PyTorch', 'NLP', 'Llama'],
-  
-  '📊 Data & Analytics': ['Python Data Science', 'Pandas', 'NumPy', 'Data Visualization', 'Backtesting', 'Forex Trading'],
-  
-  '🏦 Trading & Finance': ['Forex Trading', 'Technical Analysis', 'Algorithmic Trading', 'Signal Generation', 'Risk Management', 'Market Analysis'],
-  
-  '⚙️ DevOps & Linux': ['Linux Mint', 'Ubuntu', 'Docker', 'Git', 'GitHub Actions', 'CI/CD', 'AWS', 'Nginx'],
-  
-  '🛠️ Tools & Technologies': ['VS Code', 'Jupyter', 'Postman', 'Figma', 'GitHub', 'Linux Terminal', 'Ollama']
+  '💻 Programming Languages': ['Python', 'JavaScript', 'HTML5', 'CSS3', 'TypeScript'],
+  '⚛️ Frontend Development': ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion'],
+  '🖥️ Backend Development': ['Node.js', 'Express', 'Django', 'FastAPI'],
+  '🤖 AI & Machine Learning': ['Ollama', 'OpenAI API', 'LangChain', 'TensorFlow'],
+  '📊 Trading & Finance': ['Forex Trading', 'Technical Analysis', 'Algorithmic Trading'],
+  '⚙️ DevOps & Linux': ['Linux Mint', 'Docker', 'Git', 'GitHub Actions']
+};
+
+// When clicked, search for the skill on Google or link to relevant page
+const getSkillLink = (skill) => {
+  const encoded = encodeURIComponent(skill);
+  return `https://www.google.com/search?q=${encoded}`;
 };
 
 const Skills = () => {
@@ -26,7 +23,7 @@ const Skills = () => {
           My Skills
         </h2>
         <p className="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
-          Technologies, languages, and tools I work with to build amazing applications and systems.
+          Click on any skill to learn more about it. Each badge is clickable!
         </p>
         
         {Object.entries(skills).map(([category, skillList]) => (
@@ -36,16 +33,23 @@ const Skills = () => {
             </h3>
             <div className="flex flex-wrap justify-center gap-3">
               {skillList.map((skill, index) => (
-                <span 
-                  key={index} 
-                  className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white rounded-full text-sm font-medium hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition cursor-default shadow-sm"
+                <a 
+                  key={index}
+                  href={getSkillLink(skill)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white rounded-full text-sm font-medium hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition cursor-pointer shadow-sm"
                 >
                   {skill}
-                </span>
+                </a>
               ))}
             </div>
           </div>
         ))}
+        
+        <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-8">
+          💡 Click on any skill to learn more about it
+        </p>
       </div>
     </section>
   );

@@ -3,33 +3,31 @@ import React from 'react';
 const projects = [
   {
     title: 'FEiOS AI Operating System',
-    description: 'A complete AI-powered development assistant built from scratch on Linux Mint. Features project management, task tracking, code generation, Git integration, terminal execution, and persistent memory. The orchestrator uses deterministic Python with LLM generation for coding, research, and automation.',
-    tech: ['Python', 'Ollama', 'React', 'Linux', 'Git', 'AI']
+    description: 'An AI-powered development assistant built from scratch on Linux Mint. Features project management, code generation, Git integration, and persistent memory.',
+    tech: ['Python', 'Ollama', 'React', 'Linux'],
+    github: 'https://github.com/feisalbarreh-dotcom/feios',
+    demo: '#'
   },
   {
     title: 'AI Development Portfolio',
-    description: 'This very portfolio! A modern developer portfolio built with React and Tailwind CSS, featuring dark mode, responsive design, and interactive components. Deployed and managed through the FEiOS system.',
-    tech: ['React', 'Tailwind CSS', 'JavaScript', 'Framer Motion', 'FEiOS']
+    description: 'Modern developer portfolio built with React and Tailwind CSS. Features dark mode, responsive design, and interactive components.',
+    tech: ['React', 'Tailwind CSS', 'JavaScript', 'Framer Motion'],
+    github: 'https://github.com/feisalbarreh-dotcom/devportfolio',
+    demo: 'https://feisalbarreh-dotcom.github.io/devportfolio'
   },
   {
-    title: 'FeiBot Trading Bot (In Progress)',
-    description: 'An AI-powered trading bot for forex and cryptocurrency markets. Features market analysis, strategy backtesting, signal generation, and automated execution. Built as a module within the FEiOS ecosystem.',
-    tech: ['Python', 'AI', 'APIs', 'Data Analysis', 'Financial Markets']
-  },
-  {
-    title: 'Project Management & Memory System',
-    description: 'A sophisticated project memory system that gives FEiOS long-term memory about your projects. Features state persistence, history logging, task tracking, blocker management, and project-local knowledge bases (.feios directories).',
-    tech: ['Python', 'JSON', 'File System', 'Vector Search', 'SQLite']
-  },
-  {
-    title: 'Code Generation & Analysis Engine',
-    description: 'An AI-powered code generation system integrated into FEiOS. Generates React components from natural language specifications, analyzes existing code, and provides improvement suggestions. Includes safe file management and Git integration.',
-    tech: ['React', 'Python', 'LLM', 'Ollama', 'File System']
+    title: 'FeiBot Trading Bot',
+    description: 'An AI-powered trading bot for forex and cryptocurrency markets. Features market analysis, strategy backtesting, and signal generation.',
+    tech: ['Python', 'AI', 'Data Analysis', 'Financial Markets'],
+    github: '#',
+    demo: '#'
   },
   {
     title: 'AI Research & Documentation Skill',
-    description: 'A research module that performs web searches, scrapes documentation, summarizes findings, and generates reports. All integrated into the FEiOS ecosystem.',
-    tech: ['Python', 'Web Scraping', 'AI', 'Natural Language', 'Research']
+    description: 'A research module that performs web searches, scrapes documentation, summarizes findings, and generates reports.',
+    tech: ['Python', 'Web Scraping', 'AI', 'Natural Language'],
+    github: '#',
+    demo: '#'
   }
 ];
 
@@ -41,9 +39,9 @@ const Projects = () => {
           My Projects
         </h2>
         <p className="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
-          From AI operating systems to full-stack applications. Here's what I've built with my skills.
+          Click on the buttons below to explore each project's code or live demo.
         </p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <div key={index} className="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-2 border-t-4 border-blue-500">
               <div className="p-6">
@@ -53,13 +51,36 @@ const Projects = () => {
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech, i) => (
                     <span key={i} className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full">
                       {tech}
                     </span>
                   ))}
                 </div>
+                <div className="flex gap-3">
+                  <a 
+                    href={project.github} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className={`px-4 py-2 bg-gray-800 text-white rounded-lg text-sm hover:bg-gray-700 transition ${project.github === '#' ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    onClick={project.github === '#' ? (e) => e.preventDefault() : undefined}
+                  >
+                    📦 GitHub
+                  </a>
+                  <a 
+                    href={project.demo} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className={`px-4 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700 transition ${project.demo === '#' ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    onClick={project.demo === '#' ? (e) => e.preventDefault() : undefined}
+                  >
+                    🚀 Live Demo
+                  </a>
+                </div>
+                {project.github === '#' && (
+                  <p className="text-xs text-gray-400 mt-2">Coming soon</p>
+                )}
               </div>
             </div>
           ))}
