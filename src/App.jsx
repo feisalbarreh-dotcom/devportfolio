@@ -5,6 +5,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import './index.css';
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -14,11 +15,7 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    document.body.className = darkMode ? 'dark' : 'light';
   }, [darkMode]);
 
   const toggleDarkMode = () => {
@@ -26,7 +23,7 @@ function App() {
   };
 
   return (
-    <div className="app">
+    <div className={darkMode ? 'dark' : 'light'}>
       <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
       <Hero />
       <Projects />
